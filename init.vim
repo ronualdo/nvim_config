@@ -8,6 +8,7 @@ set autoindent
 set nobackup
 set nowb
 set noswapfile
+set ruler
 
 " setting split openning
 set splitbelow
@@ -19,3 +20,8 @@ set number
 filetype plugin indent on
 highlight ColorColumn ctermbg=5
 let &colorcolumn="81,".join(range(100,999),",")
+
+" plugins
+call plug#begin('~/.local/share/nvim/plugged')
+Plug 'scrooloose/nerdtree'
+call plug#end()
