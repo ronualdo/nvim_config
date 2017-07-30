@@ -25,3 +25,6 @@ let &colorcolumn="81,".join(range(100,999),",")
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'scrooloose/nerdtree'
 call plug#end()
+
+" Mappings
+map <F2> :NERDTreeToggle<CR>
