@@ -37,6 +37,7 @@ Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-endwise'
 Plug 'mattn/emmet-vim'
+Plug 'eugen0329/vim-esearch'
 call plug#end()
 
 " Mappings
