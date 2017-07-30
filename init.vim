@@ -18,6 +18,8 @@ set splitright
 syntax on
 set number
 filetype plugin indent on
+
+" column limit config
 highlight ColorColumn ctermbg=5
 let &colorcolumn="81,".join(range(100,999),",")
 
@@ -35,3 +37,5 @@ call plug#end()
 
 " Mappings
 map <F2> :NERDTreeToggle<CR>
+nmap <tab> :tabnext<CR>
+nmap <S-tab> :tabprevious<CR>
