@@ -33,6 +33,10 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " plugins
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
+Plug 'mattn/emmet-vim'
 call plug#end()
 
 " Mappings
