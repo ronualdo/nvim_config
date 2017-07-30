@@ -53,6 +53,7 @@ Plug 'mattn/emmet-vim'
 Plug 'eugen0329/vim-esearch'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
+Plug 'cloudhead/neovim-fuzzy'
 
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
@@ -71,3 +72,4 @@ call plug#end()
 map <F2> :NERDTreeToggle<CR>
 nmap <tab> :tabnext<CR>
 nmap <S-tab> :tabprevious<CR>
+nnoremap <C-p> :FuzzyOpen<CR>
