@@ -43,6 +43,9 @@ let g:lightline = {
       \ },
       \ }
 
+" deoplete config
+let g:deoplete#enable_at_startup = 1
+
 " plugins
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'scrooloose/nerdtree'
@@ -54,6 +57,9 @@ Plug 'eugen0329/vim-esearch'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'cloudhead/neovim-fuzzy'
+Plug 'slashmili/alchemist.vim'
+Plug 'elixir-editors/vim-elixir'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 function! BuildComposer(info)
   if a:info.status != 'unchanged' || a:info.force
@@ -73,3 +79,4 @@ map <F2> :NERDTreeToggle<CR>
 nmap <tab> :tabnext<CR>
 nmap <S-tab> :tabprevious<CR>
 nnoremap <C-p> :FuzzyOpen<CR>
+tnoremap <Esc> <C-\><C-n>
