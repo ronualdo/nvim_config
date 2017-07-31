@@ -46,6 +46,9 @@ let g:lightline = {
 " deoplete config
 let g:deoplete#enable_at_startup = 1
 
+" nerdtree config
+let NERDTreeQuitOnOpen=1
+
 " plugins
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'scrooloose/nerdtree'
