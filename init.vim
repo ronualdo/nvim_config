@@ -21,14 +21,11 @@ filetype plugin indent on
 
 " column limit config
 highlight ColorColumn ctermbg=5
-let &colorcolumn="81,".join(range(100,999),",")
+let &colorcolumn="81,".join(range(90,999),",")
 
 " Nerdtree settings
 " close vim if the only window left open is a NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" open a NERDTree automatically when vim starts up if no files were specified
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " lightline config
 set noshowmode
@@ -49,6 +46,15 @@ let g:deoplete#enable_at_startup = 1
 " nerdtree config
 let NERDTreeQuitOnOpen=1
 
+" vim-test config
+let test#strategy = "neovim"
+
+" neomake config
+autocmd! BufWritePost * Neomake
+let g:neomake_javascript_enabled_makers=['standard']
+let g:neomake_python_enabled_makers=['flake8']
+let g:neomake_ruby_enabled_makers=['rubocop', 'reek', 'mri']
+
 " plugins
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'scrooloose/nerdtree'
@@ -62,6 +68,11 @@ Plug 'tpope/vim-fugitive'
 Plug 'cloudhead/neovim-fuzzy'
 Plug 'slashmili/alchemist.vim'
 Plug 'elixir-editors/vim-elixir'
+Plug 'neomake/neomake'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'digitaltoad/vim-pug'
+Plug 'janko-m/vim-test'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 function! BuildComposer(info)
@@ -83,3 +94,20 @@ nmap <tab> :tabnext<CR>
 nmap <S-tab> :tabprevious<CR>
 nnoremap <C-p> :FuzzyOpen<CR>
 tnoremap <Esc> <C-\><C-n>
+" " Copy to clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+nnoremap  <leader>yy  "+yy
+" Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
+" vim-test mappings
+nmap <silent> <leader>t :TestNearest<CR>
+nmap <silent> <leader>T :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+tmap <C-o> <C-\><C-n>
