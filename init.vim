@@ -21,7 +21,7 @@ filetype plugin indent on
 
 " column limit config
 highlight ColorColumn ctermbg=5
-let &colorcolumn="81,".join(range(90,999),",")
+let &colorcolumn="91"
 
 " Nerdtree settings
 " close vim if the only window left open is a NERDTree
